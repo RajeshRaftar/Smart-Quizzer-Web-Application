@@ -21,4 +21,4 @@ Smart Quizzer is a dynamic, interactive web application built using Flask, MySQL
 ## Usage
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/smart-quizzer.git
+   git clone https://github.com/https://github.com/RajeshRaftar/smart-quizzer.git
