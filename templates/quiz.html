@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}Quiz - {{ session.get("topic") }}{% endblock %}
+{% block content %}
+    <div class="quiz-container">
+        <h2>{{ session.get("topic") }} Quiz</h2>
+        <h3>Hello, {{ session.get("name") }}! Good luck!</h3>
+        <form method="POST" action="{{ url_for('submit_quiz') }}">
+            
+            {% for q in session.questions %}
+                {# Save the outer loop's index in a variable #}
+                {% set question_index = loop.index0 %} 
+                
+                <div class="quiz-card">
+                    <p class="question-text"><strong>Q{{ loop.index }}.</strong> {{ q.question }}</p>
+                    <div class="options-group">
+
+                        {% for option in q.options %}
+                            <div class="option">
+                               {# Use the saved variable 'question_index' here #}
+                               <input type="radio" id="q{{ question_index }}_opt{{ loop.index0 }}" name="answer_{{ question_index }}" value="{{ loop.index0 }}" required>
+                               <label for="q{{ question_index }}_opt{{ loop.index0 }}">{{ option }}</label>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="button-submit">Submit Quiz</button>
+        </form>
+    </div>
+{% endblock %}

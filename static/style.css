@@ -1,0 +1,176 @@
+/* --- General Styles --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    text-align: center;
+    margin: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* --- Form & Card Styles --- */
+.form-card {
+    margin: 20px auto;
+    max-width: 450px;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+input, select {
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    width: calc(100% - 30px);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0,123,255,0.2);
+}
+
+/* --- Button Styles --- */
+button, .button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+button:hover, .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,123,255,0.4);
+}
+
+.button-secondary {
+    background: #6c757d;
+    color: white;
+}
+.button-secondary:hover{
+    background: #5a6268;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.confirm-buttons {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+/* --- Quiz & Result Styles --- */
+.quiz-container {
+    text-align: left;
+}
+.quiz-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.question-text {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.options-group .option {
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #007BFF;
+}
+
+.result-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.result-card li {
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+.correct {
+    background-color: #e9f7ef;
+    color: #155724;
+    border-left: 4px solid #28a745;
+    font-weight: bold;
+}
+.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+    text-decoration: line-through;
+}
+.result-card li em {
+    font-size: 0.9em;
+    color: #555;
+    margin-left: 10px;
+}
+
+
+/* --- Flash Messages --- */
+.flash {
+    margin: 0 auto 20px auto;
+    padding: 15px;
+    max-width: 450px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: 1px solid transparent;
+}
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+.flash-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+.flash-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-color: #ffeeba;
+}
+.flash-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-color: #bee5eb;
+}
+

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}Create Quiz{% endblock %}
+{% block head %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const subjectsData = JSON.parse('{{ subjects | tojson | safe }}');
+        const subjectSelect = document.getElementById("subject");
+        const topicSelect = document.getElementById("topic");
+        
+        function loadTopics() {
+            const subject = subjectSelect.value;
+            topicSelect.innerHTML = '<option value="">Select topic</option>'; // Reset
+            if (subject && subjectsData[subject]) {
+                subjectsData[subject].forEach(t => {
+                    const opt = document.createElement("option");
+                    opt.value = t;
+                    opt.textContent = t;
+                    topicSelect.appendChild(opt);
+                });
+            }
+        }
+        
+        subjectSelect.addEventListener('change', loadTopics);
+        loadTopics(); // Initial load
+    });
+</script>
+{% endblock %}
+{% block content %}
+    <form method="POST" class="form-card">
+        <h2>Create a Quiz</h2>
+        <input type="text" name="name" placeholder="Enter your name" value="{{ session.get('name', '') }}" required><br>
+        <select name="skill" required>
+            <option value="">Select skill level</option>
+            <option value="Beginner" {% if session.get('skill') == 'Beginner' %}selected{% endif %}>Beginner</option>
+            <option value="Intermediate" {% if session.get('skill') == 'Intermediate' %}selected{% endif %}>Intermediate</option>
+            <option value="Advanced" {% if session.get('skill') == 'Advanced' %}selected{% endif %}>Advanced</option>
+        </select><br>
+        <select name="subject" id="subject" required>
+            <option value="">Select subject</option>
+            {% for subject in subjects.keys() %}
+                <option value="{{ subject }}">{{ subject }}</option>
+            {% endfor %}
+        </select><br>
+        <select name="topic" id="topic" required>
+            <option value="">Select topic</option>
+        </select><br>
+        <input type="number" name="num_questions" placeholder="Number of questions" min="3" max="10" value="{{ session.get('num_questions', 5) }}" required><br>
+        <button type="submit">Confirm Selection</button>
+    </form>
+    <a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}

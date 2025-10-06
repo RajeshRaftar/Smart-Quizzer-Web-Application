@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}Welcome - Smart Quizzer{% endblock %}
+{% block content %}
+    <h1>Welcome to Smart Quizzer!</h1>
+    <p>Your intelligent quiz generation platform.</p>
+    <div class="nav-links">
+        <a href="{{ url_for('register') }}" class="button">Register</a>
+        <a href="{{ url_for('login') }}" class="button">Login</a>
+    </div>
+{% endblock %}

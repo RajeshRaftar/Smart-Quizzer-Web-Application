@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}Confirm Selection{% endblock %}
+{% block content %}
+    <div class="form-card">
+        <h2>Confirm Your Selection</h2>
+        <p>Hello, <strong>{{ session.get("name") }}</strong>!</p>
+        <p>Skill Level: <strong>{{ session.get("skill") }}</strong></p>
+        <p>Subject: <strong>{{ session.get("subject") }}</strong></p>
+        <p>Topic: <strong>{{ session.get("topic") }}</strong></p>
+        <p>Number of Questions: <strong>{{ session.get("num_questions") }}</strong></p>
+    
+        <form method="POST" class="confirm-buttons">
+            <p>Do you want to start the quiz?</p>
+            <button type="submit" name="start_quiz" value="yes">Yes, Start Quiz</button>
+            <button type="submit" name="start_quiz" value="no" class="button-secondary">No, Go Back</button>
+        </form>
+    </div>
+{% endblock %}

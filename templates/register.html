@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+    <form method="POST" class="form-card">
+        <h2>User Registration</h2>
+        <input type="text" name="username" placeholder="Choose username" required autocomplete="username"><br>
+        <input type="password" name="password" placeholder="Enter password" required autocomplete="new-password"><br>
+        <input type="password" name="confirm_password" placeholder="Confirm password" required autocomplete="new-password"><br>
+        <button type="submit">Register</button>
+        <a href="{{ url_for('login') }}">Already have an account? Login</a>
+    </form>
+{% endblock %}

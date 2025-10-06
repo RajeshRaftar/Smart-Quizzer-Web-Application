@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Quiz Result{% endblock %}
+{% block content %}
+<div class="result-summary">
+    <h2>Your Score: {{ score }} / {{ total }}</h2>
+</div>
+
+<h3>Review Your Answers</h3>
+{% for q in questions %}
+    {% set q_idx = loop.index0 %}  {# 0-based index of the question #}
+    <div class="quiz-card result-card">
+        <p class="question-text"><strong>Q{{ loop.index }}. {{ q.question }}</strong></p>
+        <ul>
+            {% for opt in q.options %}
+                {% set opt_idx = loop.index0 %}  {# 0-based index of the option #}
+                {% set is_correct = (opt_idx == q.answer) %}
+                {% set is_selected = (user_answers[q_idx] == opt_idx) %}
+                <li class="
+                    {% if is_correct %}correct{% endif %}
+                    {% if is_selected and not is_correct %}incorrect{% endif %}
+                ">
+                    {{ opt }}
+                    {% if is_selected %}
+                        <em>(Your answer)</em>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endfor %}
+
+<a href="{{ url_for('topic_selection') }}" class="button">Generate Another Quiz</a>
+<a href="{{ url_for('logout') }}" class="button-secondary">Logout</a>
+{% endblock %}
