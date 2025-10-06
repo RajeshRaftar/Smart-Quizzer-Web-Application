@@ -23,7 +23,7 @@ Session(app)  # Initialize Session
 
 
 # --- Configuration ---
-GEMINI_API_KEY = "AIzaSyB-p0eASfAz2p2WKQ-uhqWstmz6K3qDEUQ"  # Replace with your valid Gemini API key
+GEMINI_API_KEY = "your_GEMINI_API_KEY"  # Replace with your valid Gemini API key
 
 # ---------- MySQL Connection ----------
 def get_db_connection():
