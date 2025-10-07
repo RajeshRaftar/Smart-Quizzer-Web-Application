@@ -1,4 +1,3 @@
-/* --- General Styles --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f0f2f5;
@@ -107,13 +106,66 @@ button:hover, .button:hover {
     margin-bottom: 15px;
 }
 
-.options-group .option {
-    margin-bottom: 10px;
+/* --- THIS IS THE NEW CODE TO ADD --- */
+
+/* Custom Radio Button Styling */
+.option {
+    display: flex;
+    align-items: center; 
+    position: relative; 
+    cursor: pointer;
+    margin-bottom: 12px; 
 }
 
-input[type="radio"] {
-    margin-right: 10px;
-    accent-color: #007BFF;
+/* Hide the default radio button */
+.option input[type="radio"] {
+    display: none;
+}
+
+/* Style the label to have space for our custom box */
+.option label {
+    padding-left: 35px;
+    font-size: 1em;
+}
+
+/* Create the custom box (the "checkbox") */
+.option label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+/* Create the inner dot that appears when selected */
+.option label:after {
+    content: '';
+    position: absolute;
+    display: none; 
+    left: 8px; 
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%; 
+    background: white;
+    transition: all 0.2s;
+}
+
+.option input[type="radio"]:checked + label:before {
+    background-color: #007BFF;
+    border-color: #007BFF;
+}
+
+.option input[type="radio"]:checked + label:after {
+    display: block;
+    transform: translateY(-50%) scale(1);
 }
 
 .result-card ul {
