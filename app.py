@@ -1,4 +1,4 @@
-from flask_session import Session  # Add this import at the top
+from flask_session import Session 
 import os
 import re
 import json
@@ -14,10 +14,10 @@ app.secret_key = "a_very_secret_and_secure_key_for_production"
 bcrypt = Bcrypt(app)
 
 # Configure server-side sessions
-app.config['SESSION_TYPE'] = 'filesystem'          # Store sessions in local filesystem
+app.config['SESSION_TYPE'] = 'filesystem'         
 app.config['SESSION_FILE_DIR'] = './flask_session_dir'
 app.config['SESSION_PERMANENT'] = False
-app.config['SESSION_USE_SIGNER'] = True           # Optional: adds encryption/signing
+app.config['SESSION_USE_SIGNER'] = True         
 
 Session(app)  # Initialize Session
 
